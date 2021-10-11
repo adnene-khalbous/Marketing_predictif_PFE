@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+	<head>
+	  <meta charset="UTF-8">
+	  <title>ML API</title>
+	  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+	  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+	  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+	  <!--<link href="style.css" rel="stylesheet" type="text/css">-->
+	  <!--<link href="C:\Users\AKHALBOUS\Desktop\API_marketing\templates\style.css" rel="stylesheet" type="text/css">-->
+	</head>
+
+	<body>
+	 <div class="login">
+		<h1>Prospection</h1>
+
+		 <!-- Main Input For Receiving Query to our ML -->
+		<form action="{{ 'http://localhost:5000/predict'}}"method="post">
+			<input type="text" name="SEXE" placeholder="SEXE" required="required" />
+			<input type="text" name="CIVILITÉ" placeholder="CIVILITÉ" required="required" />
+			<input type="text" name="SITUATION_FAMILIALE" placeholder="SITUATION_FAMILIALE" required="required" />
+			<input type="number" name="departement" placeholder="departement" required="required" />
+			<input type="text" name="CANAL_ORIGINE" placeholder="CANAL_ORIGINE" required="required" />
+			<input type="text" name="adherent" placeholder="adherent" required="required" />
+			<input type="number" name="age" placeholder="age" required="required" />
+			<input type="number" name="mois" placeholder="mois" required="required" />
+			<input type="number" name="STATUT_ASSURÉ_RC" placeholder="STATUT_ASSURÉ_RC" required="required" />
+			<input type="number" name="STATUT_ASSURÉ_RO" placeholder="STATUT_ASSURÉ_RO" required="required" />
+			<input type="text" name="origine" placeholder="origine" required="required" />
+			<input type="text" name="GAMME_PROPOSITION" placeholder="GAMME_PROPOSITION" required="required" />
+
+			<button type="submit form" class="btn btn-primary btn-block btn-large">Predict</button>
+		</form>
+
+	   <br>
+	   <br>
+	   {{ prediction_text }}
+
+	 </div>
+
+
+	</body>
+</html>
